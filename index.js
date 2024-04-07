@@ -31,14 +31,10 @@ document
   });
 
 document.getElementById('save-css-btn').addEventListener('click', async () => {
-  const data = {};
   const css = getCssById('save-css');
   const url = document.getElementById('active-url').value;
-  const saveTo = url;
 
-  data[saveTo] = css;
-
-  chrome.storage.sync.set(data);
+  chrome.storage.sync.set({ [url]: css });
 });
 
 document
@@ -92,8 +88,8 @@ const getPageSpecificURL = (url) => {
   const hasParams = url.indexOf('?');
   const hasDiv = url.indexOf('#');
 
-  let pageURL = hasParams > 0 ? url.substring(0, hasParams) : url;
-  pageURL = hasDiv > 0 ? url.substring(0, hasDiv) : pageURL;
+  let pageURL = hasDiv > 0 ? url.substring(0, hasDiv) : url;
+  pageURL = hasParams > 0 ? pageURL.substring(0, hasParams) : pageURL;
 
   return pageURL;
 };
@@ -122,9 +118,7 @@ const setDefaultURL = async () => {
     currentWindow: true
   });
 
-  const pageSpecificURL = getPageSpecificURL(url);
-
-  document.getElementById('active-url').value = pageSpecificURL;
+  document.getElementById('active-url').value = getPageSpecificURL(url);
 };
 
 const applyCSS = async () => {
