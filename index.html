@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>Hey Puppies</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <h1>CSS to inject</h1>
+    <div class="checkbox-wrapper">
+      <h3 id="important-title">Inject `!important;`</h3>
+      <label class="switch">
+        <input type="checkbox" id="inject-important" />
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div>
+      <textarea id="css" rows="10" cols="50"></textarea>
+    </div>
+    <div>
+      <button id="fire-css-btn">Fire CSS</button>
+    </div>
+
+    <h1>CSS to Save</h1>
+    <div class="checkbox-wrapper">
+      <h3 id="url-specific-title">Page Specific</h3>
+      <label class="switch">
+        <input type="checkbox" id="url-specific-checkbox" />
+        <span class="slider"></span>
+      </label>
+      <input type="text" id="active-url" value="" />
+    </div>
+    <div>
+      <div id="url-input-tips">
+        <i>Save URL as ` all-sites ` to apply to all sites</i>
+      </div>
+    </div>
+    <div>
+      <textarea id="save-css" rows="10" cols="50"></textarea>
+    </div>
+    <div>
+      <button id="save-css-btn">Save CSS</button>
+      <button id="clear-storage-btn" zoom="0.1">Clear All Styles</button>
+    </div>
+    <div></div>
+    <h1>Saved Styles</h1>
+    <div id="saved-styles">
+      <ul id="saved-styles-list"></ul>
+    </div>
+  </body>
+  <script src="index.js"></script>
+</html>
